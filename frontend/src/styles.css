@@ -1,0 +1,94 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: gray; /* Changed from #272323 to gray */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes up full height of the viewport */
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Navbar Styling (Moved to Bottom) */
+.navbar {
+    background: #333;
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    order: 2; /* Makes the navbar appear last */
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    background: #575757;
+}
+
+/* Main Content Styling */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    flex: 1; /* Ensures the main content takes up remaining space */
+}
+
+.page {
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background: #0056b3;
+}
+
+.button:focus {
+    outline: none;
+}
+
+/* Footer Styling (Moved to Top) */
+footer {
+    background-color: #181515;
+    color: #1b1818;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+    order: 1; /* Makes the footer appear first */
+}
+
+footer p {
+    font-size: 14px;
+}
