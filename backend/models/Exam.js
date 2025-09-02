@@ -11,7 +11,8 @@ const examSchema = new mongoose.Schema({
       score: { type: Number, default: 0 },
       attendedAt: { type: Date, default: Date.now }
     }
-  ]
+  ],
+  code: { type: String, unique: true, index: true } 
 }, { timestamps: true });
 
 module.exports = mongoose.model('Exam', examSchema);

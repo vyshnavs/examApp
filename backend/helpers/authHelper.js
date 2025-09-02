@@ -24,34 +24,42 @@ exports.register = async (req, res) => {
     );
 
     const link = `http://localhost:5000/api/auth/verify/${verificationToken}`;
-    await sendEmail(
+   
+
+await sendEmail(
   email,
-  "Verify Your Exam App Registration",
-  `
-  <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 10px; background: #f9f9f9;">
-    <h2 style="color: #4CAF50; text-align: center;">Welcome to Exam App 🎓</h2>
-    <p style="font-size: 16px; color: #333;">
-      Thank you for registering on <b>Exam App</b>, your smart platform for managing exams and results.  
-    </p>
-    <p style="font-size: 16px; color: #333;">
-      Please confirm your account by clicking the button below:
-    </p>
-    <div style="text-align: center; margin: 30px 0;">
-      <a href="${link}" style="background: #4CAF50; color: white; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-size: 16px; font-weight: bold;">
-        ✅ Verify My Account
-      </a>
-    </div>
-    <p style="font-size: 14px; color: #777; text-align: center;">
-      If the button doesn't work, copy and paste this link into your browser:  
-      <br/>
-      <a href="${link}" style="color: #4CAF50;">${link}</a>
-    </p>
-    <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;" />
-    <p style="font-size: 12px; color: #999; text-align: center;">
-      © 2025 Exam App. All rights reserved.
-    </p>
-  </div>
-  `
+  "Verify your email",
+  {
+    text: `Click the link to verify your email: ${link}`, // plain-text fallback
+    html: `
+    <html>
+      <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+        <div style="max-width: 500px; margin: auto; background: #ffffff; border: 1px solid #ddd; border-radius: 6px; padding: 20px;">
+          <h2 style="color: #333; text-align: center;">Verify Your Email</h2>
+          <p style="color: #555; font-size: 15px;">
+            Thanks for registering with <strong>Exam App</strong> 🎓. Please confirm your email address to complete your registration.
+          </p>
+          <div style="text-align: center; margin: 25px 0;">
+            <a href="${link}" 
+               style="background-color: #007BFF; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 4px; display: inline-block; font-weight: bold;">
+               Verify Email
+            </a>
+          </div>
+          <p style="color: #777; font-size: 13px; text-align: center;">
+            If the button above doesn’t work, copy and paste this link into your browser:
+          </p>
+          <p style="color: #555; font-size: 13px; word-break: break-word; text-align: center;">
+            ${link}
+          </p>
+          <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+          <p style="color: #aaa; font-size: 12px; text-align: center;">
+            © ${new Date().getFullYear()} Exam App. All rights reserved.
+          </p>
+        </div>
+      </body>
+    </html>
+    `
+  }
 );
 
     res.json({

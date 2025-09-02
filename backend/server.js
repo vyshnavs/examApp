@@ -4,9 +4,8 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
-
-
-
+const userRoutes = require('./routes/userRoutes');
+const examFlow = require("./routes/examFlow")
 dotenv.config();
 connectDB();
 
@@ -21,6 +20,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/examFlow",examFlow)
 
 
 

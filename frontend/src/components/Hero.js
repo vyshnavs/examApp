@@ -29,13 +29,13 @@ export default function Hero() {
             className="mt-6 flex gap-4"
           >
             <a
-              href="#attend"
+              href="attendExam"
               className="px-5 py-3 rounded-md bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-glow theme-transition"
             >
               Attend an Exam
             </a>
             <a
-              href="#create"
+              href="/createExam"
               className="px-5 py-3 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-brand-500 dark:hover:border-brand-400 text-neutral-900 dark:text-neutral-100 theme-transition"
             >
               Create an Exam
